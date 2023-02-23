@@ -1,0 +1,84 @@
+<!DOCTYPE html> <html lang="en"> 
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My E-commerce Website</title>
+ 
+ <link rel="stylesheet" type="text/css" href="realweb2.css" media="all">
+ <style>
+ body {background-color: powderblue;}
+ h1   {color: blue;}
+ p    {color: red;}
+ img {
+ </style>
+  </head>
+   <body> 
+  <header> 
+  <nav> <ul> 
+  <li><a href="Sensorsweb.html">Sensor</a></li> 
+  <li><a href="FRLweb.html">FRL</a></li> 
+  <li><a href="VALVESweb.html">Valves</a></li>
+  <li><a href="Cyliderweb.html">Cyliders</a></li>
+  <li><a href="accessoriesweb.html">Accessories</a></li>
+   <li><a href="#">Contact</a></li> 
+   </ul> </nav> 
+   </header>
+    <main> 
+    <section class="featured">
+     <h2>Featured Products</h2> <ul> <li> <a href="#"> <img
+      src="id23.jpg" alt="Product id23"  width="70%"; height="70%";>
+     <h3>Product id23</h3>
+      <p>$19.99</p> </a> </li> <li> <a href="#"> <img
+       src="id24.jpg" alt="Product id24"  width="70%"; height="70%";>
+      <h3>Product id24</h3>
+       <p>$29.99</p> </a> </li> <li> <a href="#"> <img 
+       src="id25.jpg" alt="Product id25" width="70%"; height="70%";>
+       <h3>Product id25</h3
+       > <p>$39.99</p> </a> </li> </ul> 
+       </section>
+        <section class="products"> <h2>Shop</h2> <ul> <li> <a href="#"> 
+        <img src="id26.jpg" alt="Product id26"width="70%"; height="70%";> 
+        <h3>Product id26</h3> <p>$49.99</p> </a> </li> <li> <a href="#"> 
+        <img src="id27.jpg" alt="Product id27"width="70%"; height="70%";> 
+        <h3>Product id27</h3> <p>$59.99</p> </a> </li> 
+        <li> <a href="#">
+        <img src="id28.jpg" alt="Product id28"width="70%"; height="70%";>
+        <h3>Product id28</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id29.jpg" alt="Product id29"width="70%"; height="70%";>
+        <h3>Product id29</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id30.jpg" alt="Product id30" width="70%"; height="70%";>
+        <h3>Product id30</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id31.jpg" alt="Product id31" width="70%"; height="70%";>
+        <h3>Product id31</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id32.jpg" alt="Product id32" width="70%"; height="70%";>
+        <h3>Product id32</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id33+id34.jpg" alt="Product id33+id34" width="70%"; height="70%";>
+        <h3>Product id33+id34</h3> <p>$69.99</p> </a> </li>
+        <li> <a href="#">
+        <img src="id35.jpg" alt="Product id35" width="70%"; height="70%";>
+        <h3>Product id35</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id36.jpg" alt="Product id36"width="70%"; height="70%";>
+        <h3>Product id36</h3> <p>$69.99</p> </a> </li><li> <a href="#">
+        <img src="id37.jpg" alt="Product id37"width="70%"; height="70%";>
+        <h3>Product id37</h3> <p>$69.99</p> </a> </li>
+         </ul> 
+         </section>
+         <section id="contact">
+         <h2>Contact Us</h2>
+         <form action="#" method="post">
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name" required>
+         
+         <label for="email"><br/>Email:</label>
+         <input type="email" id="email" name="email" required>
+         
+         <label  for="message"><br>Message:</label>
+         <textarea id="message" name="message" required></textarea>
+         
+         <button type="submit">Send</button>
+         </form>
+         </section>
+          </main>
+           <footer> 
+           <p>&copy; 2023 My E-commerce Website</p> 
+</footer> </body> </html> 
