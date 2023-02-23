@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>My E-commerce Website</title> 
+<link rel="stylesheet" href="realweb.css">
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+ </head> 
+ <body> 
+ <header>
+  <nav> 
+  <ul>
+   <li><a href="#">Home</a></li> 
+   <li><a href="#">Shop</a></li>
+    <li><a href="#">About</a></li> 
+    <li><a href="#">Contact</a></li> 
+    </ul>
+   </nav>
+    </header> 
+    <main>
+     <section class="featured"> 
+     <h2>
+    Sensors</h2>
+      <ul>
+       <li> <a href="#"> <img src="id77.jpg" alt="Product id77" width="70%"; height="70%";> 
+       <h3>Product id77</h3>
+        <p>$19.99</p>
+         </a> 
+         </li> 
+       <li> <a href="#"> <img src="id78.jpg" alt="Product id78" width="70%"; height="70%";>
+        <h3>Product id78</h3>
+         <p>$29.99</p> </a> 
+          </li> 
+          <li> <a href="#"> <img src="id79.jpg" alt="Product id79" width="70%"; height="70%";> 
+          <h3>Product id79</h3> 
+          <p>$39.99</p></a> 
+           </li>
+           <li> <a href="#"> <img src="id80.jpg" alt="Product id80" width="70%"; height="70%";> 
+           <h3>Product id80</h3> 
+           <p>$39.99</p></a> 
+           </li>
+           <li> <a href="#"> <img src="id81.jpg" alt="Product id81" width="70%"; height="70%";> 
+           <h3>Product id81</h3> 
+           <p>$39.99</p></a> 
+           </li>
+           <li> <a href="#"> <img src="id82.jpg" alt="Product id82" width="70%"; height="70%";> 
+           <h3>Product id82</h3> 
+           <p>$39.99</p></a> 
+           </li>
+           <li> <a href="#"> <img src="id83.jpg" alt="Product id83" width="70%"; height="70%";> 
+           <h3>Product id83</h3> 
+           <p>$39.99</p></a> 
+           </li> 
+           </ul> 
+           </section>
+           
+                       </main> 
+                       <footer> 
+                       <p>&copy; 2023 My E-commerce Website</p>
+                        </footer>
+                         </body> 
+                         </html>
