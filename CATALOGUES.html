@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: powderblue;
+        }
+
+        header {
+            background-color: powderblue;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            text-align: center;
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: silver;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product.small {
+            width: 30%; /* Adjust the width for the smaller product */
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .additional-products {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .additional-product {
+            text-align: center;
+            width: 30px;
+            margin: 5px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5 245);
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .product {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .product-item {
+      width: 30%;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      background-color: #fff;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .product-item {
+        width: 48%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .product-item {
+        width: 100%;
+      }
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+      display: inline-block;
+    }
+     /* Your existing styles */
+
+  /* Additional styles for PDF pages */
+  .pdf-page {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .pdf-item {
+    width: 30%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .pdf-item img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .pdf-item {
+      width: 48%;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .pdf-item {
+      width: 100%;
+    }
+  }
+  </style>
+  
+</head>
+<body style="background-color:powderblue;">
+
+  <header>
+    <h1 style="color:powderblue;font-family: verdana;
+    font-size: 20px;">  Elkamch-commerce Call <a href="tel:+212648329389">00212 6 48 32 93 89</a>
+ or <a href="Contact.html"> Email Us </h1>  </a>
+     <img src="icons8-logo-50.png" alt="Logo" width:"200px;"
+ 
+     height: 100px; style="float: left;"> 
+
+
+     <nav>
+      <a href="Home.html" style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Home</a>
+      <a href="Products.html" style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Products</a>
+      <a href="Services.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Services</a>
+      <a href="AboutUs.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">AboutUs</a>
+      <a href="Contact.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Contact</a>
+     
+  </nav>
+  </header>
+ 
+
+</head>
+<body style="background-color:powderblue;">
+
+
+
+<!-- Display images of PDFs with links to download -->
+<!-- Display images of PDFs with links to download -->
+<main class="pdf-page">
+  <div class="pdf-item">
+    <img src="id01.PNG" alt="PDF 1 Image">
+    <a href="download/Festo-Catalogue1.pdf" download>Download Festo-Catalogue</a>
+  </div>
+  <div class="pdf-item">
+    <img src="id02.PNG" alt="PDF 2 Image">
+    <a href="download/FestoEssentials1.pdf"  download>Download Festo Essentials</a>
+  </div>
+  <div class="pdf-item">
+    <img src="id03.PNG" alt="PDF 3 Image">
+    <a href="download/fitting1.pdf" download>Download Festo fetting</a>
+  </div>
+  <div class="pdf-item">
+    <img src="id04.PNG" alt="PDF 4 Image">
+    <a href="download/installation1.pdf" download>Download Festo Installation</a>
+  </div>
+  <div class="pdf-item">
+    <img src="id06.PNG" alt="PDF 5 Image">
+    <a href="download/Pneumatic1.pdf" download>Download Festo Pneumatic</a>
+  </div>
+</main>
+
+
+
+<!-- Your existing footer content -->
+<footer style="background-color: navy; padding: 20px; text-align: center; color: powderblue;">
+  <p style="margin-bottom: 10px;">&copy;<b> 2023  Elkamch-commerce. All rights reserved.</p>
+
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+    <div style="flex: 1; padding: 10px;">
+      <h4>CUSTOMER SUPPORT</h4>
+      <ul style="list-style: none; padding: 0;">
+      <a href="Home.html"> <li>Contact Information</li>  </a> 
+      <a href="Home.html"> <li>Privacy Policy</li>     </a> 
+      <a href="Home.html"> <li>Terms of use</li>       </a> 
+      </ul>
+    </div>
+
+    <div style="flex: 1; padding: 10px;">
+      <h4>OUR COMPANY</h4>
+      <ul style="list-style: none; padding: 0;">
+        <a href="AboutUs.html">  <li>AboutUs </li>  </a> 
+            <a href="Contact.html">     <li>Careers</li>   </a> 
+      </ul>
+    </div>
+
+    <div style="flex: 1; padding: 10px;">
+      <h4>LEARNING</h4>
+      <ul style="list-style: none; padding: 0;">
+        <a href="CATALOGUES.html">    <li>CATALOGUES</li>   </a> 
+          
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    #product-container {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #form-container {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <title>Product and Form</title>
+</head>
+<body>
+
+  <div id="product-container">
+    <!-- Product image and information go here -->
+    <img src="id1.jpg" alt="Product Image" style="max-width: 100%; height: auto;">
+    <p> <b>MS6-LFR-1/2-D7-RM-A4 MS6-LRB-1/2-D7-RG MS6-LRB-1/2-D7-RG MS6-FRM-1/2 MS6-EE-1/2-10V24-S MS6-FRM-1/2.</b></p>
+  </div>
+
+  <div id="form-container">
+    <form id="order-form" action="/submit1" method="post" >
+      <label for="name"><b>Name:</b></label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="address"><b>Address:</b></label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="phone"><b>Phone:</b></label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="email"><b>Email:</b></label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="quantity"><b>Quantity:</b></label>
+      <input type="number" id="quantity" name="quantity" required>
+      
+
+      <button type="submit" style="background-color: green; color: white; width: 120px; height: 32px; font-size: 12px;"><b>Submit</b></button> <br>
+      <br>
+
+      <a href="home.html" style="text-decoration: none;">
+        <button type="button" style="background-color: blue; color: white; width: 120px; height: 32px; font-size: 12px;"><b>Home Page</b></button>
+      </a>
+    </form>
+      
+    
+  </div>
+
+</body>
+</html>
