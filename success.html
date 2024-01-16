@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Submitted Successfully</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: green;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+    }
+    h1 {
+        color: green;
+    }
+</style>
+<title>Success Page</title>
 </head>
 <body>
-    <h1>Order submitted successfully!</h1>
+
+  <div id="success-container">
+    <h1>Success Page</h1>
+    <p id="formDataDisplay">Form Data:</p>
+  </div>
+
+  <script>
+    // Function to retrieve query parameters from URL
+    function getQueryParams() {
+      var params = new URLSearchParams(window.location.search);
+      return Object.fromEntries(params.entries());
+    }
+
+    // Get form data from query parameters
+    var formData = getQueryParams();
+
+    // Display form data
+    var formDataDisplay = document.getElementById('formDataDisplay');
+    formDataDisplay.textContent += JSON.stringify(formData);
+  </script>
+
 </body>
 </html>
