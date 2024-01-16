@@ -58,10 +58,10 @@
     }
   </style>
   <title>Product and Form</title>
-</head>
-<body>
-
-  <div id="product-container">
+  </head>
+  <body>
+  
+    <div id="product-container">
     <!-- Product image and information go here -->
     <img src="id1.jpg" alt="Product Image" style="max-width: 100%; height: auto;">
     <p> <b>MS6-LFR-1/2-D7-RM-A4 MS6-LRB-1/2-D7-RG MS6-LRB-1/2-D7-RG MS6-FRM-1/2 MS6-EE-1/2-10V24-S MS6-FRM-1/2.</b></p>
@@ -93,29 +93,26 @@
         <button type="button" style="background-color: blue; color: white; width: 120px; height: 32px; font-size: 12px;"><b>Home Page</b></button>
       </a>
     </form>
-      
-    
-  </div>
- <script>
-    document.getElementById('order-form').addEventListener('submit', function (event) {
-      // Prevent the form from submitting the traditional way
-      event.preventDefault();
-
-      // Get form data
-      var formData = {
-        name: document.getElementById('name').value,
-        address: document.getElementById('address').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        quantity: document.getElementById('quantity').value
-      };
-
-      // Store data in localStorage
-      localStorage.setItem('formData', JSON.stringify(formData));
-
-      // Submit the form
-      this.submit();
-    });
-  </script>
-</body>
-</html>
+    <script>
+      document.getElementById('order-form').addEventListener('submit', function (event) {
+        // Prevent the form from submitting the traditional way
+        event.preventDefault();
+  
+        // Get form data
+        var formData = {
+          name: document.getElementById('name').value,
+          address: document.getElementById('address').value,
+          phone: document.getElementById('phone').value,
+          email: document.getElementById('email').value,
+          quantity: document.getElementById('quantity').value
+        };
+  
+        // Store data in localStorage
+        localStorage.setItem('formData', JSON.stringify(formData));
+  
+        // Redirect to the success.html page with form data as query parameters
+        window.location.href = '/success.html?' + new URLSearchParams(formData);
+      });
+    </script>
+  </body>
+  </html>
