@@ -1,57 +1,52 @@
-// app.js
-
 const express = require('express');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const path = require('path');
+const nodemailer = require('nodemailer');
 
 const app = express();
+const port = 3000;
+
+// Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// MongoDB Atlas connection details
-const atlasUsername = 'zouhairelkamch7';
-const atlasPassword = '<7OwcANUDBSftxBsg>';
-const atlasCluster = 'website.eblsfqa.mongodb.net';
-const atlasDatabase = 'zouhair_commerce';
-
-mongoose.connect(`mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
-// Define a Mongoose schema for your form data
-const formDataSchema = new mongoose.Schema({
-  name: String,
-  address: String,
-  phone: String,
-  email: String,
-  quantity: Number
-});
-
-const FormData = mongoose.model('FormData', formDataSchema);
-
-// Serve static files from the root directory
-app.use(express.static(path.join(__dirname, '')));
-
 // Handle form submission
-app.post('/submit2', (req, res) => {
-  const formData = new FormData({
-    name: req.body.name,
-    address: req.body.address,
-    phone: req.body.phone,
-    email: req.body.email,
-    quantity: req.body.quantity
+app.post('/success.html', (req, res) => {
+  // Extract form data
+  const formData = req.body;
+
+  // Configure nodemailer to send email
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: ' z4943562@gmail.com',
+      pass: ' 0034697864304Zouhair',
+    },
   });
 
-  formData.save((err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-    } else {
-      res.redirect('/success.html'); // Redirect to a success page
+  // Compose email
+  const mailOptions = {
+    from: ' z4943562@gmail.com',
+    to: ' z4943562@gmail.com',
+    subject: 'New Form Submission',
+    text: JSON.stringify(formData),
+  };
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.error(error);
     }
+    console.log('Email sent: ' + info.response);
   });
+
+  // Redirect to a success page
+  res.redirect('/success.html');
 });
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
