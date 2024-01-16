@@ -13,7 +13,7 @@
         color: green;
     }
 </style>
-<title>Success Page</title>
+  <title>Success Page</title>
 </head>
 <body>
 
@@ -35,7 +35,50 @@
     // Display form data
     var formDataDisplay = document.getElementById('formDataDisplay');
     formDataDisplay.textContent += JSON.stringify(formData);
+
+    // Function to store form data in MongoDB Atlas
+    function storeFormDataInDatabase(formData) {
+      // MongoDB Atlas connection details
+      const atlasUsername = 'zouhairelkamch7';
+      const atlasPassword = '<7OwcANUDBSftxBsg>';
+      const atlasCluster = 'website.eblsfqa.mongodb.net';
+      const atlasDatabase = 'zouhair_commerce';
+
+      // Create MongoDB connection string
+      const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
+
+      // Create a MongoDB client
+      const { MongoClient } = require('mongodb');
+      const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+
+      // Connect to the MongoDB Atlas cluster
+      client.connect()
+        .then(() => {
+          console.log('Connected to MongoDB Atlas');
+
+          // Select the database and collection
+          const db = client.db(atlasDatabase);
+          const collection = db.collection('your_collection_name'); // Replace 'your_collection_name' with the actual collection name
+
+          // Insert the form data into the collection
+          return collection.insertOne(formData);
+        })
+        .then((result) => {
+          console.log('Form data inserted:', result.ops);
+        })
+        .catch((error) => {
+          console.error('Error connecting to MongoDB Atlas:', error);
+        })
+        .finally(() => {
+          // Close the MongoDB connection
+          client.close();
+        });
+    }
+
+    // Call the function to store form data in MongoDB
+    storeFormDataInDatabase(formData);
   </script>
 
 </body>
 </html>
+
