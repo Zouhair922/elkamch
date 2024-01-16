@@ -34,7 +34,7 @@ const FormData = mongoose.model('FormData', formDataSchema);
 app.use(express.static(path.join(__dirname, '')));
 
 // Handle form submission
-app.post('/submit1', (req, res) => {
+app.post('/submit2', (req, res) => {
   const formData = new FormData({
     name: req.body.name,
     address: req.body.address,
