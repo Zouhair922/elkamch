@@ -3,10 +3,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')); // Assuming your HTML file is in the 'public' directory
 
 // MongoDB Atlas connection details
 const atlasUsername = 'zouhairelkamch7';
@@ -29,6 +29,9 @@ const formDataSchema = new mongoose.Schema({
 });
 
 const FormData = mongoose.model('FormData', formDataSchema);
+
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '')));
 
 // Handle form submission
 app.post('/submit1', (req, res) => {
