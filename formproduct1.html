@@ -23,41 +23,56 @@
   </div>
 
   <script>
-    // Function to retrieve query parameters from URL
-    function getQueryParams() {
-      var params = new URLSearchParams(window.location.search);
-      return Object.fromEntries(params.entries());
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to retrieve query parameters from URL
+      function getQueryParams() {
+        var params = new URLSearchParams(window.location.search);
+        return Object.fromEntries(params.entries());
+      }
 
-    // Get form data from query parameters
-    var formData = getQueryParams();
+      // Get form data from query parameters
+      var formData = getQueryParams();
 
-    // Display form data
-    var formDataDisplay = document.getElementById('formDataDisplay');
-    formDataDisplay.textContent += JSON.stringify(formData);
+      // Display form data
+      var formDataDisplay = document.getElementById('formDataDisplay');
+      formDataDisplay.textContent += JSON.stringify(formData);
 
-    // Twilio integration for sending WhatsApp messages
-    const accountSid = 'ACb3e3ca0eb2566002bc4bd3884318ae72'; // Replace with your Twilio account SID
-    const authToken = 'e262ebe43471c559ffcc66441a4c5a3c'; // Replace with your Twilio auth token
-    const client = require('twilio')(accountSid, authToken);
+      // MongoDB Atlas connection details
+      const atlasUsername = 'zouhairelkamch7';
+      const atlasPassword = '<7OwcANUDBSftxBsg>';
+      const atlasCluster = 'website.eblsfqa.mongodb.net';
+      const atlasDatabase = 'website'; // Updated database name
 
-    // Twilio WhatsApp message body
-    const messageBody = `New form submission:\n${JSON.stringify(formData, null, 2)}`;
+      // Create MongoDB connection string
+      const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
 
-    // Twilio WhatsApp sender and recipient numbers
-    const from = 'whatsapp:+12056192594'; // Your Twilio phone number
-    const to = 'whatsapp:+1234567890'; // Replace with your recipient's WhatsApp number
+      // Create a MongoDB client
+      const { MongoClient } = require('mongodb');
+      const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    // Send WhatsApp message using Twilio
-    client.messages
-      .create({
-         from: from,
-         body: messageBody,
-         to: to
-       })
-      .then(message => console.log('WhatsApp message sent:', message.sid))
-      .catch(error => console.error('Error sending WhatsApp message:', error));
+      // Connect to the MongoDB Atlas cluster
+      client.connect()
+        .then(() => {
+          console.log('Connected to MongoDB Atlas');
 
+          // Select the database and collection
+          const db = client.db(atlasDatabase);
+          const collection = db.collection('data'); // Updated collection name
+
+          // Insert the form data into the collection
+          return collection.insertOne(formData);
+        })
+        .then((result) => {
+          console.log('Form data inserted:', result.ops);
+        })
+        .catch((error) => {
+          console.error('Error connecting to MongoDB Atlas:', error);
+        })
+        .finally(() => {
+          // Close the MongoDB connection
+          client.close();
+        });
+    });
   </script>
 
 </body>
