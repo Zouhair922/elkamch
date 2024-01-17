@@ -3,6 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+  document.getElementById('order-form').addEventListener('submit', function (event) {
+    // Prevent the form from submitting the traditional way
+    event.preventDefault();
+
+    // Get form data
+    var formData = {
+      name: document.getElementById('name').value,
+      address: document.getElementById('address').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      quantity: document.getElementById('quantity').value
+    };
+
+    // Store data in MongoDB
+    fetch('/submit1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle success or error responses from the server
+      console.log(data);
+      // Redirect to the success.html page
+      window.location.href = '/success.html';
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+</script>
+
   <style>
     /* Your CSS styles here */
   </style>
