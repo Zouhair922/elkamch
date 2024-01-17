@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +40,7 @@
     const atlasUsername = 'zouhairelkamch7';
     const atlasPassword = '<7OwcANUDBSftxBsg>';
     const atlasCluster = 'website.eblsfqa.mongodb.net';
-    const atlasDatabase = 'zouhair_commerce';
+    const atlasDatabase = 'website'; // Updated database name
 
     // Create MongoDB connection string
     const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
@@ -58,7 +56,7 @@
 
         // Select the database and collection
         const db = client.db(atlasDatabase);
-        const collection = db.collection('your_collection_name'); // Replace 'your_collection_name' with the actual collection name
+        const collection = db.collection('data'); // Updated collection name
 
         // Insert the form data into the collection
         return collection.insertOne(formData);
