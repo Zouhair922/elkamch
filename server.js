@@ -3,46 +3,45 @@ const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = 3000; // Set your desired port
+const port = 3001;
 
-// Middleware to parse incoming JSON requests
 app.use(bodyParser.json());
 
-// MongoDB Atlas connection details
-const atlasUsername = 'zouhairelkamch7';
-const atlasPassword = '<7OwcANUDBSftxBsg>';
-const atlasCluster = 'website.eblsfqa.mongodb.net';
-const atlasDatabase = 'website';
-const collectionName = 'data';
+// MongoDB connection details
+const mongoURI = 'mongodb+srv://<zouhairelkamch7>:<7OwcANUDBSftxBsg>@cluster.mongodb.net/<database>';
+const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
+// Connect to MongoDB
+client.connect()
+  .then(() => {
+    console.log('Connected to MongoDB');
 
-// POST endpoint to handle form submissions
-app.post('/submit1', async (req, res) => {
-  try {
-    const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
-    await client.connect();
+    // Handle form submission
+    app.post('/submit1', (req, res) => {
+      const formData = req.body;
 
-    const db = client.db(atlasDatabase);
-    const collection = db.collection(collectionName);
+      // Insert form data into MongoDB
+      const db = client.db('<database>');
+      const collection = db.collection('formData');
 
-    const formData = req.body;
+      collection.insertOne(formData)
+        .then(result => {
+          console.log('Form data inserted:', result.ops);
+          res.json({ success: true });
+        })
+        .catch(error => {
+          console.error('Error inserting form data:', error);
+          res.status(500).json({ success: false, error: 'Internal Server Error' });
+        });
+    });
 
-    // Insert form data into MongoDB
-    const result = await collection.insertOne(formData);
+    // Start the server
+    app.listen(port, () => {
+      console.log(`Server is running at http://localhost:${port}`);
+    });
+  })
+  .catch(error => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
-    console.log('Form data inserted:', result.ops);
 
-    res.status(200).json({ success: true });
-  } catch (error) {
-    console.error('Error connecting to MongoDB Atlas:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  } finally {
-    client.close();
-  }
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
