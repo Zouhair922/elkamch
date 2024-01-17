@@ -1,28 +1,48 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+const { MongoClient } = require('mongodb');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000; // Set your desired port
 
-// Middleware to parse form data
-app.use(bodyParser.urlencoded({ extended: true }));
+// Middleware to parse incoming JSON requests
+app.use(bodyParser.json());
 
-// Handle form submission
-app.post('/submit1', (req, res) => {
-  // Your existing form submission logic here
+// MongoDB Atlas connection details
+const atlasUsername = 'zouhairelkamch7';
+const atlasPassword = '<7OwcANUDBSftxBsg>';
+const atlasCluster = 'website.eblsfqa.mongodb.net';
+const atlasDatabase = 'website';
+const collectionName = 'data';
 
-  // Redirect to a success page
-  res.redirect('/success.html');
-});
+const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
 
-// Handle GET requests for success.html
-app.get('/success.html', (req, res) => {
-  // Respond with the success.html page
-  res.sendFile(__dirname + '/success.html');
+// POST endpoint to handle form submissions
+app.post('/submit1', async (req, res) => {
+  try {
+    const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+    await client.connect();
+
+    const db = client.db(atlasDatabase);
+    const collection = db.collection(collectionName);
+
+    const formData = req.body;
+
+    // Insert form data into MongoDB
+    const result = await collection.insertOne(formData);
+
+    console.log('Form data inserted:', result.ops);
+
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Error connecting to MongoDB Atlas:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  } finally {
+    client.close();
+  }
 });
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
