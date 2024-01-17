@@ -5,99 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
     }
-
-    #product-container {
-      flex: 1;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    #form-container {
-      flex: 1;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    form {
-      max-width: 400px;
-      width: 100%;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 16px;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
+    h1 {
+        color: green;
     }
   </style>
-  <title>Product and Form</title>
+  <title>Success Page</title>
 </head>
 <body>
 
-  <div id="product-container">
-    <!-- Product image and information go here -->
-    <img src="id2.jpg" alt="Product Image" style="max-width: 100%; height: auto;">
-    <p>DSBF-C-50-350-PPSA-N3-R 12bar.</p>
+  <div id="success-container">
+    <h1>Success Page</h1>
+    <p id="formDataDisplay">Form Data:</p>
   </div>
 
-  <div id="form-container">
-    <form id="order-form" action="/submit2" method="post">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+  <script>
+    // Function to retrieve query parameters from URL
+    function getQueryParams() {
+      var params = new URLSearchParams(window.location.search);
+      return Object.fromEntries(params.entries());
+    }
 
-      <label for="address">Address:</label>
-      <input type="text" id="address" name="address" required>
+    // Get form data from query parameters
+    var formData = getQueryParams();
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
+    // Display form data
+    var formDataDisplay = document.getElementById('formDataDisplay');
+    formDataDisplay.textContent += JSON.stringify(formData);
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+    // MongoDB Atlas connection details
+    const atlasUsername = 'zouhairelkamch7';
+    const atlasPassword = '<7OwcANUDBSftxBsg>';
+    const atlasCluster = 'website.eblsfqa.mongodb.net';
+    const atlasDatabase = 'zouhair_commerce';
 
-      <label for="quantity">Quantity:</label>
-      <input type="number" id="quantity" name="quantity" required>
-      
+    // Create MongoDB connection string
+    const connectionString = `mongodb+srv://${atlasUsername}:${atlasPassword}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
 
-      <button type="submit" style="background-color: green; color: white; width: 120px; height: 32px; font-size: 12px;">Submit</button> <br>
-      <br>
+    // Create a MongoDB client
+    const { MongoClient } = require('mongodb');
+    const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
-      <a href="home.html" style="text-decoration: none;">
-        <button type="button" style="background-color: blue; color: white; width: 120px; height: 32px; font-size: 12px;">Home Page</button>
-      </a>
-      
-      
-      
-      
-    </form>
- 
+    // Connect to the MongoDB Atlas cluster
+    client.connect()
+      .then(() => {
+        console.log('Connected to MongoDB Atlas');
 
-  
+        // Select the database and collection
+        const db = client.db(atlasDatabase);
+        const collection = db.collection('your_collection_name'); // Replace 'your_collection_name' with the actual collection name
+
+        // Insert the form data into the collection
+        return collection.insertOne(formData);
+      })
+      .then((result) => {
+        console.log('Form data inserted:', result.ops);
+      })
+      .catch((error) => {
+        console.error('Error connecting to MongoDB Atlas:', error);
+      })
+      .finally(() => {
+        // Close the MongoDB connection
+        client.close();
+      });
+  </script>
 
 </body>
 </html>
