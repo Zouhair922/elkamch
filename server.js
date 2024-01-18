@@ -41,6 +41,23 @@ client.connect()
           res.status(500).send('Internal Server Error');
         });
     });
+// Update the server-side code to handle the 'post' method
+app.post('/submit1', (req, res) => {
+  const formData = req.body;
+
+  const db = client.db('<database>');
+  const collection = db.collection('formData');
+
+  collection.insertOne(formData)
+    .then(result => {
+      console.log('Form data inserted:', result.ops);
+      res.json({ success: true });
+    })
+    .catch(error => {
+      console.error('Error inserting form data:', error);
+      res.status(500).json({ success: false, error: 'Internal Server Error' });
+    });
+});
 
     // Start the server
     app.listen(port, () => {
