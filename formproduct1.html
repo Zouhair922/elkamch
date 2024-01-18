@@ -52,7 +52,7 @@
   </div>
 
   <div id="form-container">
-    <form id="order-form" action="/submit1" method="get">
+    <form id="order-form" action="/submit1" method="post">
       <label for="name"><b>Name:</b></label>
       <input type="text" id="name" name="name" required>
 
@@ -76,24 +76,37 @@
       </a>
     </form>
   </div>
+<!-- Update the JavaScript to use the 'post' method -->
+<script>
+  document.getElementById('order-form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-  <script>
-    document.getElementById('order-form').addEventListener('submit', function (event) {
-      // Prevent the form from submitting the traditional way
-      event.preventDefault();
+    var formData = {
+      name: document.getElementById('name').value,
+      address: document.getElementById('address').value,
+      phone: document.getElementById('phone').value,
+      email: document.getElementById('email').value,
+      quantity: document.getElementById('quantity').value
+    };
 
-      // Get form data
-      var formData = {
-        name: document.getElementById('name').value,
-        address: document.getElementById('address').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        quantity: document.getElementById('quantity').value
-      };
-
-      // Redirect to the success.html page with form data as query parameters
-      window.location.href = '/success.html?' + new URLSearchParams(formData);
+    // Use the 'post' method and include headers for JSON data
+    fetch('/success.html', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      window.location.href = '/success.html';
+    })
+    .catch(error => {
+      console.error('Error:', error);
     });
-  </script>
+  });
+</script>
+ 
 </body>
 </html>
