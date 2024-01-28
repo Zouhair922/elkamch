@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: powderblue;
+        }
+
+        header {
+            background-color: powderblue;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            text-align: center;
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: silver;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product.small {
+            width: 30%; /* Adjust the width for the smaller product */
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .additional-products {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .additional-product {
+            text-align: center;
+            width: 30px;
+            margin: 5px;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5 245);
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .product {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .product-item {
+      width: 30%;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      background-color: #fff;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .product-item {
+        width: 48%;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .product-item {
+        width: 100%;
+      }
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 10px;
+      display: inline-block;
+    }
+  </style>
+  
+</head>
+<body style="background-color:powderblue;">
+
+  <header>
+    <h1 style="color:powderblue;font-family: verdana;
+    font-size: 20px;">  Elkamch-commerce<br> Call <a href="tel:+212648329389">00212 6 48 32 93 89</a>
+ or <a href="Contact.html"> Email Us </h1>  </a>
+ <img src="icons8-logo-50.png" alt="Logo" width:"200px;"
+ 
+ height: 100px; style="float: left;"> 
+
+
+
+     <nav>
+      <a href="Home.html" style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Home</a>
+      <a href="Products.html" style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Products</a>
+      <a href="Services.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Services</a>
+      <a href="AboutUs.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">AboutUs</a>
+      <a href="Contact.html"style="color:powderblue;font-family: verdana;
+      font-size: 50px;">Contact</a>
+     
+  </nav>
+  </header>
+     
+      <p style="color: blue; text-align: center; font-weight: bold; animation: move 1s infinite;">
+      TECHNOLOGY ON THE MOVE <br>
+      Elkamch-commerce is an Moroccan-owned company providing <br>
+      industry-best products, intelligent solutions and exceptional service – helping your <br>
+      company improve productivity, efficiency and profitability.<br>
+      How can we help?
+    </p>
+    
+    <style>
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    </style>
+
+
+<main>
+ 
+  <div class="product" id="product1">
+      <img src="id1.jpg" alt="Product 1">
+      <h3> MS6-LFR-1/2-D7-RM-A4 </h3>
+      <p>Price: 5000 MAD</p>
+      <p style="color: green;">MS6 Series Air Service Manifold, Filter regulators MS-LFR, MS series.</p> 
+  </div>
+ 
+ 
+  <div class="product" id="product2">
+      <img src="id4.jpg" alt="Product 2">
+      <h3>DSBC-DSBG-DSBF</h3>
+      <p>Price: 900 MAD</p>
+      <p style="color: green;">Details: double-acting piston rod cylinders have several mounting options.</p>
+  </div>
+
+  <div class="product small" id="product3">
+      <img src="id15.jpg" alt="Product 3">
+      <h3>CPE24-M1H-5/3G-3/8</h3>
+      <p>Price: 2000 MAD</p>
+      <p  style="color: green;">Details: Air solenoid valve, Valve function5/3 closed.</p>
+  </div>
+</main>
+
+<div class="additional-products">
+  <!-- Additional products listed below the changing products -->
+  <div class="product" id="product4">
+    <a href="Sensors.html">
+      <img src="id26.jpg" alt="Sensors">
+      <h3>Sensors</h3>
+      <p style="font-size: 20px;">Price: 500 MAD</p>
+      <p style="color: green;">Details: Proximity sensor, Switching output
+        Contact-based, bipolar.</p></a>
+
+  </div>
+  <div class="product" id="product5">
+    <a href="pneumaticylinder.html">
+      <img src="id2.jpg" alt="pneumatic cylinders">
+      <h3>pneumatic cylinders</h3>
+      <p style="font-size: 20px;">Price:  1500 MAD</p>
+      <p style="color: green;">Details:    DOUBLE-ACTING <br>
+        50MM PISTON DIAMETER <br>
+        350MM STROKE.</p>      </a>
+  </div>
+  <div class="product" id="product6">
+    <a href="PneumaticValves.html">
+      <img src="id15.jpg" alt="Pneumatic Valves">
+      <h3>Pneumatic Valves</h3>
+      <p style="font-size: 20px;">Price:  2000 MAD</p>
+      <p style="color: green;">Details: Air solenoid valve, Valve function5/3 closed,<br> Type of actuationElectric,</p>     </a>
+  </div>
+ 
+  <div class="product" id="product6">
+    <a href="FRL.html">
+      <img src="id1.jpg" alt="MS6-LFR-1/2-D7-RM-A4 MS6-LRB-1/2-D7-RG">
+      <h3>Filter, Regulator, Lubricator</h3>
+      <p style="font-size: 20px;">Price:  5000MAD</p>
+      <p style="color: green;">Details: MS6 Series Air Service Manifold, Filter regulators MS-LFR, MS series.</p>     </a>
+  </div>
+
+
+
+
+  <!-- Repeat the above code for the other two products -->
+
+</div>
+
+<!-- Add more additional products as needed -->
+<!-- ...
+   <div class="additional-product">21</div>
+-->
+</div>
+<footer style="background-color: navy; padding: 20px; text-align: center; color: powderblue;">
+  <p style="margin-bottom: 10px;">&copy;<b> 2023  Elkamch-commerce. All rights reserved.</p>
+
+  <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+    <div style="flex: 1; padding: 10px;">
+      <h4>CUSTOMER SUPPORT</h4>
+      <ul style="list-style: none; padding: 0;">
+      <a href="Home.html"> <li>Contact Information</li>  </a> 
+      <a href="Home.html"> <li>Privacy Policy</li>     </a> 
+      <a href="Home.html"> <li>Terms of use</li>       </a> 
+      </ul>
+    </div>
+
+    <div style="flex: 1; padding: 10px;">
+      <h4>OUR COMPANY</h4>
+      <ul style="list-style: none; padding: 0;">
+        <a href="AboutUs.html">  <li>AboutUs </li>  </a> 
+            <a href="Contact.html">     <li>Careers</li>   </a> 
+      </ul>
+    </div>
+
+    <div style="flex: 1; padding: 10px;">
+      <h4>LEARNING</h4>
+      <ul style="list-style: none; padding: 0;">
+        <a href="CATALOGUES.html">    <li>CATALOGUES</li>   </a> 
+          
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // JavaScript for image and product information slider (change on click)
+  const products = [
+    { id: "product1", img: "id1.jpg", name: "Filter, Regulator, and Lubricator (FRL)", price: "$50", details: "Compressed air systems deliver clean air at a fixed.", link: "products.html" },
+    { id: "product2", img: "id4.jpg", name: "Pneumatic Cylinders", price: "$75", details: "Mechanical device which uses  to produce a force in a reciprocating linear.", link: "products.html" },
+    { id: "product3", img: "id15.jpg", name: "Pneumatic Valves", price: "$100", details: "An array of components responsible for controlling the pressure, rate. ", link: "products.html" }
+  ];
+  let currentIndex = 0;
+
+  function changeProductInfo() {
+    const currentProduct = products[currentIndex];
+    const currentProductDiv = document.getElementById(currentProduct.id);
+
+    currentProductDiv.style.display = 'none';
+    currentIndex = (currentIndex + 1) % products.length;
+    const nextProduct = products[currentIndex];
+    const nextProductDiv = document.getElementById(nextProduct.id);
+
+    currentProductDiv.style.display = 'none';
+    nextProductDiv.style.display = 'block';
+
+    currentIndex = (currentIndex + 1) % products.length;
+  }
+
+  function handleClick(link) {
+    window.location.href = link;
+  }
+
+  // Initially show the first product
+  document.getElementById(products[0].id).style.display = 'block';
+
+  // Add event listeners to stop the auto change on mouseover and resume on mouseout
+  products.forEach((product, index) => {
+    const productDiv = document.getElementById(product.id);
+    const productImage = productDiv.getElementsByTagName('img')[0];
+    const productName = productDiv.getElementsByTagName('h3')[0];
+    const productPrice = productDiv.getElementsByTagName('p')[0];
+    const productDetails = productDiv.getElementsByTagName('p')[1];
+    const productLink = document.createElement('a');
+
+    // Update the product name
+    productName.textContent = product.name;
+
+    // Update the styling for price
+    productPrice.style.fontWeight = 'bold';
+
+    // Update the details
+    productDetails.textContent = product.details;
+
+    // Create a link around the product image
+    productLink.href = product.link;
+    productLink.appendChild(productImage);
+    productDiv.appendChild(productLink);
+
+    productImage.addEventListener('mouseover', () => clearInterval(interval));
+    productImage.addEventListener('mouseout', () => interval = setInterval(changeProductInfo, 3000));
+    productImage.addEventListener('click', () => handleClick(product.link));
+  });
+
+  // Start the auto change interval
+  let interval = setInterval(changeProductInfo, 3000);
+
+    
+</script>
+
+
+
+
+</body>
+
+</html>
