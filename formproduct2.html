@@ -97,7 +97,24 @@
     </form>
  
 
-  
+   <script>
+    document.getElementById('order-form').addEventListener('submit', function (event) {
+      // Prevent the form from submitting the traditional way
+      event.preventDefault();
+
+      // Get form data
+      var formData = {
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        quantity: document.getElementById('quantity').value
+      };
+
+      // Redirect to the success.html page with form data as query parameters
+      window.location.href = '/success.html?' + new URLSearchParams(formData);
+    });
+  </script>
 
 </body>
 </html>
